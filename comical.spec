@@ -1,6 +1,6 @@
 Name: comical
 Version: 0.8
-Release: 5%{?dist}
+Release: 6%{?dist}
 Summary: GUI comic book viewer
 License: GPLv2
 Group: Applications/Multimedia
@@ -10,6 +10,7 @@ Source1: comical.png
 Source2: comical.desktop
 Patch0: comical-0.8-jpe.patch
 Patch1: comical-0.8-optflags.patch
+Patch2: comical-0.8-wxicon.patch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires: wxGTK2-devel
 BuildRequires: desktop-file-utils
@@ -23,6 +24,7 @@ can view CBZ and CBR format files.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 make
@@ -49,6 +51,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/pixmaps/%{name}.png
 
 %changelog
+* Sat Sep 27 2008 Hans de Goede <j.w.r.degoede@hhs.nl> 0.8-6
+- Fix building with latest wxWidgets
+
 * Sun Aug 03 2008 Thorsten Leemhuis <fedora [AT] leemhuis [DOT] info - 0.8-5
 - rebuild
 
