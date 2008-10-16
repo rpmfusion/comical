@@ -1,6 +1,6 @@
 Name: comical
 Version: 0.8
-Release: 6%{?dist}
+Release: 7%{?dist}
 Summary: GUI comic book viewer
 License: GPLv2
 Group: Applications/Multimedia
@@ -51,6 +51,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/pixmaps/%{name}.png
 
 %changelog
+* Thu Oct 16 2008 Thorsten Leemhuis <fedora [AT] leemhuis [DOT] info - 0.8-7
+- rebuild
+
 * Sat Sep 27 2008 Hans de Goede <j.w.r.degoede@hhs.nl> 0.8-6
 - Fix building with latest wxWidgets
 
