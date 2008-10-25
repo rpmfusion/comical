@@ -31,7 +31,7 @@ diff -up comical-0.8/src/Makefile.orig comical-0.8/src/Makefile
 +++ comical-0.8/src/Makefile	2008-10-25 22:52:10.000000000 +0200
 @@ -1,4 +1,4 @@
 -INCLUDE = -I../unrar -I../unzip
-+INCLUDE = -Ilibunrar -I../unzip
++INCLUDE = -Iunrar -I../unzip
  CFLAGS = -O2 -Wall -pipe $(RPM_OPT_FLAGS)
  CPPFLAGS = `wx-config --cxxflags` $(CFLAGS) -D_UNIX $(INCLUDE)
  
