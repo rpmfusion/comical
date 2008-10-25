@@ -1,6 +1,6 @@
 Name: comical
 Version: 0.8
-Release: 8%{?dist}
+Release: 9%{?dist}
 Summary: GUI comic book viewer
 License: GPLv2
 Group: Applications/Multimedia
