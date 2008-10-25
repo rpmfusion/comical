@@ -12,10 +12,13 @@ Patch0: comical-0.8-jpe.patch
 Patch1: comical-0.8-optflags.patch
 Patch2: comical-0.8-wxicon.patch
 Patch3: comical-0.8-libunrar.patch
+Patch4: comical-0.8-minizip.patch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires: wxGTK2-devel
 BuildRequires: desktop-file-utils
 BuildRequires: libunrar-devel
+BuildRequires: minizip-devel
+BuildRequires: pkgconfig
 
 
 %description
@@ -29,7 +32,8 @@ can view CBZ and CBR format files.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
-rm -rf unrar
+%patch4 -p1
+rm -rf unrar unzip
 
 
 %build
@@ -60,8 +64,11 @@ rm -rf %{buildroot}
 
 
 %changelog
+* Sun Oct 26 2008 Andreas Thienemann <andreas@bawue.net> - 0.8-9
+- Removed use of private miniunzip copy, use system-wide minizip library.
+
 * Sat Oct 25 2008 Andreas Thienemann <andreas@bawue.net> - 0.8-8
-- Removed use of private libunrar copy, use systemwide one.
+- Removed use of private libunrar copy, use system-wide one.
 
 * Thu Oct 16 2008 Thorsten Leemhuis <fedora [AT] leemhuis [DOT] info> - 0.8-7
 - rebuild
