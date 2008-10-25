@@ -8,6 +8,6 @@ Icon=comical.png
 StartupNotify=false
 Terminal=false
 Type=Application
-Categories=Application;Graphics;X-Livna;
+Categories=Application;Graphics;
 Version=0.9.4
 X-Desktop-File-Install-Version=0.4

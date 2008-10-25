@@ -1,0 +1,37 @@
+diff -up comical-0.8/Makefile.orig comical-0.8/Makefile
+--- comical-0.8/Makefile.orig	2008-10-25 22:51:26.000000000 +0200
++++ comical-0.8/Makefile	2008-10-25 22:51:37.000000000 +0200
+@@ -12,15 +12,12 @@ OBJS = $(patsubst %.cpp,%.o,$(wildcard s
+ 
+ all: comical
+ 
+-comical: $(OBJS) unrar/libunrar.a unzip/libminiunzip.a
++comical: $(OBJS) unzip/libminiunzip.a
+ 	$(CC) -o $@ $(OBJS) $(LDFLAGS)
+ 
+ $(OBJS):
+ 	$(MAKE) -C src
+ 
+-unrar/libunrar.a:
+-	$(MAKE) lib -C unrar -f makefile.linux
+-
+ unzip/libminiunzip.a:
+ 	$(MAKE) -C unzip
+ 
+@@ -39,7 +36,6 @@ clean:
+ 
+ distclean:
+ 	$(MAKE) clean
+-	$(MAKE) clean -C unrar -f makefile.linux
+ 	$(MAKE) clean -C unzip
+ 	rm -f $(DEPS) bin2h src/bin2h.o
+ 
+diff -up comical-0.8/src/Makefile.orig comical-0.8/src/Makefile
+--- comical-0.8/src/Makefile.orig	2008-10-25 22:51:45.000000000 +0200
++++ comical-0.8/src/Makefile	2008-10-25 22:52:10.000000000 +0200
+@@ -1,4 +1,4 @@
+-INCLUDE = -I../unrar -I../unzip
++INCLUDE = -Ilibunrar -I../unzip
+ CFLAGS = -O2 -Wall -pipe $(RPM_OPT_FLAGS)
+ CPPFLAGS = `wx-config --cxxflags` $(CFLAGS) -D_UNIX $(INCLUDE)
+ 

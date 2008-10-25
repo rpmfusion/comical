@@ -1,6 +1,6 @@
 Name: comical
 Version: 0.8
-Release: 7%{?dist}
+Release: 8%{?dist}
 Summary: GUI comic book viewer
 License: GPLv2
 Group: Applications/Multimedia
@@ -11,37 +11,45 @@ Source2: comical.desktop
 Patch0: comical-0.8-jpe.patch
 Patch1: comical-0.8-optflags.patch
 Patch2: comical-0.8-wxicon.patch
+Patch3: comical-0.8-libunrar.patch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires: wxGTK2-devel
 BuildRequires: desktop-file-utils
-Requires: unzip
+BuildRequires: libunrar-devel
+
 
 %description
 Comical is a fully featured GUI comic book viewer using wxWidgets. It 
 can view CBZ and CBR format files.
+
 
 %prep
 %setup -q
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
+rm -rf unrar
+
 
 %build
 make
 
-%install
-rm -rf $RPM_BUILD_ROOT
-mkdir -p $RPM_BUILD_ROOT%{_bindir}
-install -m0755 comical $RPM_BUILD_ROOT%{_bindir}
 
-install -p -D -m0644 %{SOURCE1} ${RPM_BUILD_ROOT}%{_datadir}/pixmaps/%{name}.png
-desktop-file-install --vendor livna                             \
-        --dir ${RPM_BUILD_ROOT}%{_datadir}/applications         \
-        --add-category X-Livna                                  \
+%install
+rm -rf %{buildroot}
+mkdir -p %{buildroot}%{_bindir}
+install -m0755 comical %{buildroot}%{_bindir}
+
+install -p -D -m0644 %{SOURCE1} %{buildroot}%{_datadir}/pixmaps/%{name}.png
+desktop-file-install \
+        --dir %{buildroot}%{_datadir}/applications \
         %{SOURCE2}
 
+
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
+
 
 %files
 %defattr(-,root,root)
@@ -50,14 +58,18 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/applications/*.desktop
 %{_datadir}/pixmaps/%{name}.png
 
+
 %changelog
-* Thu Oct 16 2008 Thorsten Leemhuis <fedora [AT] leemhuis [DOT] info - 0.8-7
+* Sat Oct 25 2008 Andreas Thienemann <andreas@bawue.net> - 0.8-8
+- Removed use of private libunrar copy, use systemwide one.
+
+* Thu Oct 16 2008 Thorsten Leemhuis <fedora [AT] leemhuis [DOT] info> - 0.8-7
 - rebuild
 
 * Sat Sep 27 2008 Hans de Goede <j.w.r.degoede@hhs.nl> 0.8-6
 - Fix building with latest wxWidgets
 
-* Sun Aug 03 2008 Thorsten Leemhuis <fedora [AT] leemhuis [DOT] info - 0.8-5
+* Sun Aug 03 2008 Thorsten Leemhuis <fedora [AT] leemhuis [DOT] info> - 0.8-5
 - rebuild
 
 * Fri Oct 06 2006 Thorsten Leemhuis <fedora [AT] leemhuis [DOT] info> 0.8-4
