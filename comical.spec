@@ -1,6 +1,6 @@
 Name: comical
 Version: 0.8
-Release: 9%{?dist}
+Release: 10%{?dist}
 Summary: GUI comic book viewer
 License: GPLv2
 Group: Applications/Multimedia
@@ -64,6 +64,9 @@ rm -rf %{buildroot}
 
 
 %changelog
+* Sun Mar 29 2009 Thorsten Leemhuis <fedora [AT] leemhuis [DOT] info> - 0.8-10
+- rebuild for new F11 features
+
 * Sun Oct 26 2008 Andreas Thienemann <andreas@bawue.net> - 0.8-9
 - Removed use of private miniunzip copy, use system-wide minizip library.
 
