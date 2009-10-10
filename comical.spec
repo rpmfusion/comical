@@ -1,6 +1,6 @@
 Name: comical
 Version: 0.8
-Release: 11%{?dist}
+Release: 12%{?dist}
 Summary: GUI comic book viewer
 License: GPLv2
 Group: Applications/Multimedia
@@ -64,6 +64,9 @@ rm -rf %{buildroot}
 
 
 %changelog
+* Sat Oct 10 2009 Thorsten Leemhuis <fedora [AT] leemhuis [DOT] info> - 0.8-12
+- rebuilt
+
 * Sat Apr 25 2009 Andreas Thienemann <andreas@bawue.net> - 0.8-11
 - Fixed wxGTK2 buildrequire
 
