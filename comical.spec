@@ -1,6 +1,6 @@
 Name: comical
 Version: 0.8
-Release: 13%{?dist}
+Release: 14%{?dist}
 Summary: GUI comic book viewer
 License: GPLv2
 Group: Applications/Multimedia
@@ -64,6 +64,9 @@ rm -rf %{buildroot}
 
 
 %changelog
+* Thu Feb 09 2012 Nicolas Chauvet <kwizart@gmail.com> - 0.8-14
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_17_Mass_Rebuild
+
 * Sat Oct 24 2009 Thorsten Leemhuis <fedora [AT] leemhuis [DOT] info> - 0.8-13
 - rebuild for new unrar
 
