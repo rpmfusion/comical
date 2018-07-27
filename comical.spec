@@ -1,6 +1,6 @@
 Name: comical
 Version: 0.8
-Release: 17%{?dist}
+Release: 18%{?dist}
 Summary: GUI comic book viewer
 License: GPLv2
 Group: Applications/Multimedia
@@ -64,6 +64,9 @@ rm -rf %{buildroot}
 
 
 %changelog
+* Fri Jul 27 2018 RPM Fusion Release Engineering <sergio@serjux.com> - 0.8-18
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_29_Mass_Rebuild
+
 * Fri Mar 02 2018 RPM Fusion Release Engineering <leigh123linux@googlemail.com> - 0.8-17
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_28_Mass_Rebuild
 
