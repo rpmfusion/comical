@@ -14,7 +14,8 @@ Patch2: comical-0.8-wxicon.patch
 Patch3: comical-0.8-libunrar.patch
 Patch4: comical-0.8-minizip.patch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
-BuildRequires: wxGTK-devel
+BuildRequires: gcc
+BuildRequires: wxGTK3-devel
 BuildRequires: desktop-file-utils
 BuildRequires: libunrar-devel
 BuildRequires: minizip-devel
